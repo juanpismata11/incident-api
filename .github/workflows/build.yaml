@@ -1,9 +1,9 @@
 name: Build Docker Image
 
 on:
-push:
-  branches:
-    - main
+  push:
+    branches:
+      - main
 
 env:
   REGISTRY: ghcr.io
@@ -19,6 +19,7 @@ jobs:
       - name: Login to Github Container Registry
         uses: docker/login@v4
         with:
+          registry: ghrc.io
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
