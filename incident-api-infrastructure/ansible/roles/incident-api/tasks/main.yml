@@ -1,0 +1,19 @@
+- name: Create incident-api folder
+  file:
+    path: /containers/incident-api
+    state: directory
+
+- name: Place Docker compose template
+  template:
+    src: docker-compose.yml.j2
+    dest: /containers/incident-api/docker-compose.yml
+
+- name: Place .env template
+  template:
+    src: .env.j2
+    dest: /containers/incident-api/.env
+
+- name: Start API Container
+  docker_compose:
+    project_src: /containers/incident-api
+    state: present
