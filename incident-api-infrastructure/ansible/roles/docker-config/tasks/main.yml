@@ -1,10 +1,16 @@
-- name: Login to Github Docker Registry
-  community.docker.docker_login:
-    username: "{{github_username}}"
-    password: "{{github_password}}"
-    registry: "ghcr.io"
+- name: Create docker config directory
+  file:
+    path: /root/.docker
+    state: directory
 
-- name: Create shared Docker network
-  community.docker.docker_network:
-    name: "{{shared_docker_network}}"
-    driver: bridge
+- name: Copy docker config
+  copy:
+    content: |
+      {
+        "auths": {
+          "incidentes.azurecr.io": {
+            "auth": "{{ docker_config_auth }}"
+          }
+        }
+      }
+    dest: /root/.docker/config.json

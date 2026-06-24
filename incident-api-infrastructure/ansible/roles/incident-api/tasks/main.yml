@@ -14,6 +14,6 @@
     dest: /containers/incident-api/.env
 
 - name: Start API Container
-  docker_compose:
+  community.docker.docker_compose_v2:
     project_src: /containers/incident-api
     state: present

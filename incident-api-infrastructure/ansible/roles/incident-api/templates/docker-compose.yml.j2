@@ -6,15 +6,24 @@ services:
       - "3000:3000"
     environment:
       NODE_ENV: production
-      DATABASE_URL: postgresql://{{ db_user }}:{{ db_password }}@postgres:5432/{{ db_name }}
-      REDIS_URL: redis://redis:6379
+      PORT: "3000"
+      DB_HOST: PostgresSQL
+      DB_PORT: "5432"
+      DB_USER: postgres
+      DB_PASSWORD: "{{ postgres_password }}"
+      DB_NAME: "{{ postgres_db }}"
+      DATABASE_URL: "postgresql://postgres:{{ postgres_password }}@PostgresSQL:5432/{{ postgres_db }}"
+      REDIS_HOST: Redis
+      REDIS_PORT: "6379"
+      REDIS_URL: "redis://Redis:6379"
+      MAPBOX_TOKEN: "{{ mapbox_token }}"
+      MAILER_EMAIL: "noreply@incidentapp.com"
+      MAILER_PASSWORD: "dummy_password"
+      MAILER_SERVICE: gmail
+      APPINSIGHTS_CONNECTION_STRING: ""
     networks:
       - {{ shared_docker_network }}
-    depends_on:
-      - postgres
-      - redis
     restart: always
-
 networks:
   {{ shared_docker_network }}:
     external: true
