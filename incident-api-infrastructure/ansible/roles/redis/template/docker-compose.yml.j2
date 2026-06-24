@@ -1,0 +1,12 @@
+services:
+  redis:
+    image: redis:8.8.0-trixie
+    container_name: Redis
+    ports:
+      -6379:6379
+    volumes:
+      - ./data:/data
+
+networks:
+  {{shared_docker_network}}:
+    external: true

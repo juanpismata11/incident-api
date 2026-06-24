@@ -1,0 +1,24 @@
+- name: Create /opt/wireguard/config folder
+  file:
+    path: /opt/wireguard/config
+    state: directory
+    mode: '0755'
+    recurse: yes
+ 
+ 
+- name: Copy docker-compose
+  template:
+    src: docker-compose.yml.j2
+    dest: /containers/wireguard/docker-compose.yml
+ 
+- name: Copy environment file
+  template:
+    src: .env.j2
+    dest: /containers/wireguard/.env
+ 
+- name: Run docker compose
+  community.docker.docker_compose_v2:
+    project_src: /containers/wireguard
+    state: present
+  
+ 

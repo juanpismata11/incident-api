@@ -1,0 +1,7 @@
+github_username: "{{vault_github_username}}" 
+github_password: "{{vault_github_password}}"
+
+shared_docker_network: "api-network"
+
+postgres_db: "incidentdb"
+postgres_password: "{{ vault_postgres_password}}"

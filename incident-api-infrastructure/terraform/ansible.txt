@@ -1,0 +1,21 @@
+1. crear red de contenedores donde van todos los contenedores
+  docker network create incident-network
+
+2. Crear estructura de carpetas en servidor
+  --- /
+    | -- containers
+      | -- postgres
+      | -- redis
+      | -- incident-api
+      | -- wireguard
+
+mkdir -p /containers/postgres
+mkdir -p /containers/redis
+mkdir -p /containers/incident-api
+mkdir -p /containers/wireguard
+
+3. Loguear a registry de github
+
+4. Crear docker compose y envs
+
+5. Levantar los contenedores

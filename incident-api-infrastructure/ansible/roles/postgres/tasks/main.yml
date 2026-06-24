@@ -1,0 +1,19 @@
+- name: Crear carpeta de data
+  file:
+    path: /containers/postgres/data
+    state: directory
+
+- name: Place Docker compose template
+  template:
+    src: docker-compose.yml.j2
+    dest: /container/postgres/docker-compose.yml
+
+- name: Place .env template 
+  template:
+    src: .env.j2
+    dest: /containers/postgres/.env
+
+- name: Start Container
+  community.docker.docker_compose_v2:
+    project_src: /container/postgres
+    state: present

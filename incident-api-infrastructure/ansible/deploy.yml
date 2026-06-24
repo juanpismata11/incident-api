@@ -1,0 +1,10 @@
+- hosts: servers
+  become: true
+  variables:
+    - variables/secrets.yml
+    - variables/variables.yml
+  roles:
+    - folder
+    - docker-config
+    - postgres
+    - redis

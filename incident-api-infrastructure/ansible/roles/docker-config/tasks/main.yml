@@ -1,0 +1,10 @@
+- name: Login to Github Docker Registry
+  community.docker.docker_login:
+    username: "{{github_username}}"
+    password: "{{github_password}}"
+    registry: "ghcr.io"
+
+- name: Create shared Docker network
+  community.docker.docker_network:
+    name: "{{shared_docker_network}}"
+    driver: bridge
