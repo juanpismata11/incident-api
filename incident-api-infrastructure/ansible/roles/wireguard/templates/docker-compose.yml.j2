@@ -18,7 +18,7 @@ services:
       - /opt/wireguard/config:/config
       - /lib/modules:/lib/modules
     networks:
-      - {{ shared_network_name }}
+      - {{ shared_docker_network }}
     ports:
       - 51820:51820/udp
     sysctls:

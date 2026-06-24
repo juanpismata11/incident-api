@@ -26,3 +26,5 @@ resource "azurerm_linux_virtual_machine" "incident_vm" {
     version   = "latest"
   }
 }
+
+//20.59.8.247

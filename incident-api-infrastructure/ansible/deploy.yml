@@ -1,8 +1,9 @@
 - hosts: servers
   become: true
-  variables:
+  vars_files:
     - variables/secrets.yml
     - variables/variables.yml
+  
   roles:
     - folder
     - docker-config
