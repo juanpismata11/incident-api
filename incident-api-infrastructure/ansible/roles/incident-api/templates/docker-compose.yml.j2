@@ -17,10 +17,10 @@ services:
       REDIS_PORT: "6379"
       REDIS_URL: "redis://Redis:6379"
       MAPBOX_TOKEN: "{{ mapbox_token }}"
-      MAILER_EMAIL: "noreply@incidentapp.com"
-      MAILER_PASSWORD: "dummy_password"
+      MAILER_EMAIL: "donpalin100@gmail.com"
+      MAILER_PASSWORD: "atofloiqwracqddu"
       MAILER_SERVICE: gmail
-      APPINSIGHTS_CONNECTION_STRING: ""
+      APPINSIGHTS_CONNECTION_STRING: "InstrumentationKey=84c16408-516d-45c8-8591-51de2808ef0b;IngestionEndpoint=https://westus2-2.in.applicationinsights.azure.com/;LiveEndpoint=https://westus2.livediagnostics.monitor.azure.com/;ApplicationId=af616e4b-7a40-42a9-9d0f-162bcc4206e7"
     networks:
       - {{ shared_docker_network }}
     restart: always

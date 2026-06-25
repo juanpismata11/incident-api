@@ -11,7 +11,7 @@ export const dataSourceOptions : DataSourceOptions = {
     username: envs.DB_USER,
     password: envs.DB_PASSWORD,
     entities: [__dirname + '/entities/*.entity{.ts,.js}'],
-    synchronize: false,
+    synchronize: true,
     migrations: ["dist/core/db/migrations/*"]
 }
 
